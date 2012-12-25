@@ -20,11 +20,6 @@ void BoardGame::init(qint8 board_size, qint8 goal, qint8 pit)
     this->setGoal(goal);
     this->setPit(pit);
 
-    this->setNamePlayer01("Player 01");
-    this->setNamePlayer02("Player 02");
-
-    this->setPositionPlayer01(0);
-    this->setPositionPlayer02(0);
     srand(time(0));
 }
 
@@ -73,50 +68,10 @@ void BoardGame::setGoal(qint8 goal)
      return this->pit;
  }
 
-void BoardGame::setPositionPlayer01(qint8 position)
-{
-    if (position >= 0 && position <= this->board_size) {
-        this->position_player01 = position;
-    }
-}
+ qint8 BoardGame::rollDice() const
+ {
+     qint8 dice;
+     dice = rand() % 6 + 1;
 
-qint8 BoardGame::getPositionPlayer01 () const
-{
-    return this->position_player01;
-}
-
-void BoardGame::setPositionPlayer02(qint8 position)
-{
-    if (position >= 0 && position <= this->board_size) {
-        this->position_player02 = position;
-    }
-}
-
-qint8 BoardGame::getPositionPlayer02() const
-{
-    return this->position_player02;
-}
-
-void BoardGame::setNamePlayer01(QString name)
-{
-    if (name.trimmed().length() > 0) {
-        this->name_player01 = name;
-    }
-}
-
-QString BoardGame::getNamePlayer01() const
-{
-    return this->name_player01;
-}
-
-void BoardGame::setNamePlayer02(QString name)
-{
-    if (name.trimmed().length() > 0) {
-        this->name_player02 = name;
-    }
-}
-
-QString BoardGame::getNamePlayer02() const
-{
-    return this->name_player02;
-}
+     return dice;
+ }
