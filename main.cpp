@@ -1,8 +1,10 @@
-#include <QCoreApplication>
+#include <cstdlib>
+#include <QtGui>
+
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
+    QApplication app(argc, argv);
     
-    return a.exec();
+    return EXIT_SUCCESS;
 }
