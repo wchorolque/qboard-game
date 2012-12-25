@@ -2,9 +2,9 @@
 
 BoardGame::BoardGame()
 {
-    this->setBoardSize(3);
-    this->setGoal(3);
-    this->setPit(2);
+    this->setBoardSize(BoardGame::DEFAULT_BOARD_SIZE);
+    this->setGoal(BoardGame::DEFAULT_GOAL);
+    this->setPit(BoardGame::DEFAULT_PIT);
 }
 
 BoardGame::BoardGame(qint8 board_size, qint8 goal, qint8 pit)
@@ -17,13 +17,13 @@ BoardGame::BoardGame(qint8 board_size, qint8 goal, qint8 pit)
 void BoardGame::setBoardSize(qint8 board_size)
 {
     if (board_size >= 0) {
-        if (board_size < 3) {
-            this->board_size = 3;
+        if (board_size < BoardGame::DEFAULT_BOARD_SIZE) {
+            this->board_size = BoardGame::DEFAULT_BOARD_SIZE;
         } else {
             this->board_size = board_size;
         }
     } else {
-        this->board_size = 3;
+        this->board_size = BoardGame::DEFAULT_BOARD_SIZE;
     }
 }
 
@@ -37,7 +37,7 @@ void BoardGame::setGoal(qint8 goal)
     if (goal > 1 && goal <= this->board_size) {
         this->goal = goal;
     } else {
-        this->goal = 3;
+        this->goal = BoardGame::DEFAULT_GOAL;
     }
 }
  qint8 BoardGame::getGoal()
@@ -50,7 +50,7 @@ void BoardGame::setGoal(qint8 goal)
      if (pit > 1 && pit <= this->board_size) {
          this->pit = pit;
      } else {
-         this->pit = 2;
+         this->pit = BoardGame::DEFAULT_PIT;
      }
  }
 
