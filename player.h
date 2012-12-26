@@ -22,6 +22,7 @@ public:
 
     void setPosition(qint8 position);
     qint8 getPosition() const;
+
 };
 
 #endif // PLAYER_H

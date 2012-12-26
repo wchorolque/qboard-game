@@ -2,6 +2,9 @@
 #define BOARDGAME_H
 
 #include <QtCore>
+
+#include "player.h"
+
 class BoardGame
 {
 private:
@@ -14,6 +17,9 @@ private:
     qint8 goal;
     // Default value 4
     qint8 pit;
+
+    Player* player01;
+    Player* player02;
 
     void init(qint8 board_size, qint8 goal, qint8 pit);
 public:
@@ -29,9 +35,10 @@ public:
     void setBoardSize (qint8 board_size);
     qint8 getBoardSize () const;
 
+    Player* getPlayer(qint8 player) const;
+
     qint8 rollDice() const;
-    qint8 movePlayer01();
-    qint8 movePlayer02();
+    qint8 movePlayer(qint8 player);
 };
 
 
