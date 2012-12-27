@@ -15,8 +15,10 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     boardgame.cpp \
-    player.cpp
+    player.cpp \
+    game.cpp
 
 HEADERS += \
     boardgame.h \
-    player.h
+    player.h \
+    game.h

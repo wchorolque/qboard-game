@@ -9,6 +9,17 @@ BoardGame::BoardGame()
                 );
 }
 
+BoardGame::~BoardGame()
+{
+    if (0 != this->player01) {
+        delete this->player01;
+    }
+
+    if (0 != this->player02) {
+        delete this->player02;
+    }
+}
+
 BoardGame::BoardGame(qint8 board_size, qint8 goal, qint8 pit)
 {
     this->init(board_size, goal, pit);
@@ -21,7 +32,7 @@ void BoardGame::init(qint8 board_size, qint8 goal, qint8 pit)
     this->setPit(pit);
 
     this->player01 = new Player("Player 1", board_size);
-    this->player02 = new Player("Player 2", board_size);
+    this->player02 = new Player("Computer", board_size);
 
     srand(time(0));
 }
@@ -91,18 +102,18 @@ qint8 BoardGame::rollDice() const
     return dice;
 }
 
-qint8 BoardGame::movePlayer(qint8 player)
+qint8 BoardGame::movePlayer(qint8 number_player)
 {
     qint8 dice1 = this->rollDice();
     qint8 dice2 = this->rollDice();
 
-    Player* player = this->getPlayer(player);
+    Player* player = this->getPlayer(number_player);
 
     qint8 current_position = player->getPosition();
     qint8 dices_sum = dice1 + dice2;
-    qint8 new_position = (current_position + dices_sum) % this->BoardGame;
+    qint8 new_position = (current_position + dices_sum) % this->getBoardSize();
 
-    player->setPosition(new_position);
+    this->getPlayer(number_player)->setPosition(new_position);
 
     return new_position;
 }

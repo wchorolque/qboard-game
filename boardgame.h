@@ -24,6 +24,7 @@ private:
     void init(qint8 board_size, qint8 goal, qint8 pit);
 public:
     BoardGame ();
+    ~BoardGame ();
     BoardGame (qint8 board_size, qint8 goal, qint8 pit);
 
     void setGoal (qint8 goal);
@@ -38,7 +39,7 @@ public:
     Player* getPlayer(qint8 player) const;
 
     qint8 rollDice() const;
-    qint8 movePlayer(qint8 player);
+    qint8 movePlayer(qint8 number_player);
 };
 
 

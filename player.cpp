@@ -10,7 +10,7 @@ Player::Player(QString name, qint8 max_position, qint8 position)
     this->init(name, max_position, position);
 }
 
-void Player::init(QString name, qint8 position, qint8 max_position)
+void Player::init(QString name, qint8 max_position, qint8 position)
 {
     this->setName(name);
     this->setPosition(position);
@@ -50,3 +50,12 @@ qint8 Player::getPosition() const
     return this->position;
 }
 
+QString Player::toString() const
+{
+    QString message = QString("The Player [%1] is in the cell %2")
+            .arg(this->name)
+            .arg(this->position);
+
+    return message;
+
+}
